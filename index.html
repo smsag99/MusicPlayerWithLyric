@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Music Player With Lyrics</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat:300,400,600'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <meta property="og:image" content="image.jpg" />
+    <meta name="description" content="Music Player With Lyrics" />
+    <link rel="shortcut icon" href="favicon.png" />
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+
+</head>
+
+<body>
+    <ul class="g-snows" id="jsi-snows">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <div id="overlay"></div>
+
+        <div class="content">
+            <div class="lyrics"></div>
+        </div>
+
+        <div class="player">
+            <div class="left"></div>
+            <div class="right">
+                <div class="top">
+                    <p class="songs">
+                        khone Omid                        <!--  first line -->
+                        <br>
+                        (khone Omid - Soheil Yara)   <!--  second line -->
+                    </p>
+                </div>
+                <div class="bottom">
+                    <video controlslist="nodownload" controls="" _autoplay="yes" name="media" oncontextmenu="false" class="Video" playsinline controlslist ="nofullscreen">
+                        <source src="https://irsv.upmusics.com/AliBZ/Soheil%20Yara%20%7C%20khone%20Omid%20(320).mp3" type="audio/mpeg">
+                    </video>
+                </div>
+            </div>
+        </div>
+        <!-- partial -->
+        <script>
+            var _data;
+            $.getJSON("./foo2.json", function(json) {       /*path of lyric file*/
+                _data = json; 
+            });
+        </script>
+        <script src="script.js"></script>
+        <style>
+            #overlay{
+                background-color: #33bd265e;    /*background color*/
+            }
+            @font-face {
+            font-family: myFont1;                    /*font1*/
+            src: url(./IranNastaliq.ttf);
+            }
+            @font-face {
+                font-family: myFont2;                   /*font2*/
+                src: url(Cambria);
+            }
+            body .content .lyrics > div {
+                font-size: 24px;                   /*other text color and font*/
+                color: #000000;
+            }
+            body .content .lyrics > div.highlighted {
+                color: rgb(255, 255, 255);          /*being read text color and font*/
+                font-size: 24px;
+            }
+            .songs {
+                font-size: 14px;  
+                font-family: myFont2;              /*song name and details color and size*/
+                font-weight: 600;
+                color: #e60000;
+                text-align: center;
+                }
+            body .player {
+                background-image: url("https://upmusics.com/wp-content/uploads/2020/05/logo.jpg");      /*picture of player*/
+                background-position: right;
+                background-repeat: no-repeat;
+                background-size: contain;
+            }
+            body {
+                background-color: rgb(0, 0, 0);
+                background-image: url("https://samanthaming.gumlet.io/tidbits/52-3-ways-to-set-default-value.jpg");        /*picture of Background*/
+            }
+            
+        </style>
+
+    </body>
+
+</html>
